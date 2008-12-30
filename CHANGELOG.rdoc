@@ -1,0 +1,4 @@
+== 1.0.0, released 2008-12-30
+
+* First version of the plugin with methods with_scope, with_context_scope and tc
+
