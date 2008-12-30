@@ -1,6 +1,6 @@
 = localization_scopes
 
-This plugin adds the helper methods with_scope, with_context_scope and tc for scope management of the Rails core I18n.
+This plugin adds the helper methods t_scope, t_context_scope and tc for scope management of the Rails core I18n.
 
 = Features
 * t_scope is a shortcut for using with_options with :scope to DRY blocks of translations with the same scope.
