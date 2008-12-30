@@ -3,8 +3,8 @@
 This plugin adds the helper methods with_scope, with_context_scope and tc for scope management of the Rails core I18n.
 
 = Features
-* with_scope is a shortcut for using with_options with :scope to DRY blocks of translations with the same scope.
-* with_context_scope opens code blocks with scopes equal to the file you are in, e.g. 'settings' for controllers/settings_controller.rb or 'settings.list' for views/settings/list.html.erb.
+* t_scope is a shortcut for using with_options with :scope to DRY blocks of translations with the same scope.
+* t_context_scope opens code blocks with scopes equal to the file you are in, e.g. 'settings' for controllers/settings_controller.rb or 'settings.list' for views/settings/list.html.erb.
 * tc is like the t translation method but with context scope
 
 = Further information
@@ -25,7 +25,7 @@ In app/views/settings/list.html.erb
 
 equals
 
-<% with_context_scope do |s| %>
+<% t_context_scope do |s| %>
   <%=s.t :heading1 %>
   <%=s.t :subnote %>
   <%=s.t :notice %>
@@ -33,7 +33,7 @@ equals
 
 equals
 
-<% with_scope 'settings.list' do |s| %>
+<% t_scope 'settings.list' do |s| %>
   <%=s.t :heading1 %>
   <%=s.t :subnote %>
   <%=s.t :notice %>

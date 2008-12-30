@@ -1,14 +1,14 @@
 module LocalizationScopes
-  def with_scope(*args)
+  def t_scope(*args)
     with_options(:scope => args) { |s| yield(s) }
   end
 
-  def with_context_scope
-    with_scope(get_scope_of_context) { |s| yield(s) }
+  def t_context_scope
+    t_scope(get_scope_of_context) { |s| yield(s) }
   end
 
   def tc(*args)
-    with_context_scope { |s| s.translate(*args) }
+    t_context_scope { |s| s.translate(*args) }
   end
   
 private

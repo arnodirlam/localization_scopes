@@ -1,3 +1,8 @@
+== 1.0.1, released 2008-12-30
+
+* renamed with_scope to t_scope to avoid naming conflicts with Rails with_scope
+* renamed t_context_scope to keep naming consistent
+
 == 1.0.0, released 2008-12-30
 
 * First version of the plugin with methods with_scope, with_context_scope and tc
