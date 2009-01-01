@@ -33,7 +33,7 @@ private
       scope.last.gsub! /_observer$/, ''
     end
     
-    scope
+    scope.join('.')
   end
 end
 

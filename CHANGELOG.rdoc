@@ -1,3 +1,7 @@
+== 1.0.2, released 2009-01-02
+
+* fixed context scope determination by explicitly joining parts with dots "."
+
 == 1.0.1, released 2008-12-30
 
 * renamed with_scope to t_scope to avoid naming conflicts with Rails with_scope
