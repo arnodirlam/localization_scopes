@@ -1,3 +1,7 @@
+== 1.1.0, released 2009-01-02
+
+* overwrite I18n.translate and its helpers to allow multiple scope parameters
+
 == 1.0.2, released 2009-01-02
 
 * fixed context scope determination by explicitly joining parts with dots "."

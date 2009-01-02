@@ -1,11 +1,13 @@
 = localization_scopes
 
 This plugin adds the helper methods t_scope, t_context_scope and tc for scope management of the Rails core I18n.
+It also allows to translate using multiple scope parameters like t(:general, :states, :normal).
 
 = Features
 * t_scope is a shortcut for using with_options with :scope to DRY blocks of translations with the same scope.
 * t_context_scope opens code blocks with scopes equal to the file you are in, e.g. 'settings' for controllers/settings_controller.rb or 'settings.list' for views/settings/list.html.erb.
 * tc is like the t translation method but with context scope
+* translate using multiple scope parameters like t(:general, :states, :normal)
 
 = Further information
 
@@ -13,6 +15,7 @@ This plugin adds the helper methods t_scope, t_context_scope and tc for scope ma
 
 
 = Example usage
+== Scopes & Contexts
 In app/controllers/settings_controller.rb
 
 flash[:notice] = tc(:not_found) # looks up t('settings.not_found')
@@ -44,6 +47,33 @@ equals
 <%=t 'settings.list.heading1' %>
 <%=t 'settings.list.subnote' %>
 <%=t 'settings.list.notice' %>
+
+== Scope parameters
+<%=t :settings, :list, :heading1 %>
+
+equals
+
+<%=t :settings, 'list.heading1' %>
+
+equals
+
+<%=t :list, 'heading1', :scope => :settings %>
+
+You can also use an array for bulk lookup in the last parameter, so
+
+<%=t 'settings.list', [:heading1, :subnote, :notice] %>
+
+equals
+
+<%=t :settings, :list, [:heading1, :subnote, :notice] %>
+
+equals
+
+<%=t [:heading1, :subnote, :notice], :scope => 'settings.list' %>
+
+equals
+
+<%=t [:heading1, :subnote, :notice], :scope => [:settings, :list] %>
 
 = About
 Based on simple_localization plugin by Stephan Soller and contributors.
