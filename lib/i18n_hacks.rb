@@ -36,3 +36,29 @@ module ActionView
     end
   end
 end
+
+module LocalizationScopes
+  module TranslationHelper
+    def translate(*args)
+      I18n.translate *args
+    end
+    alias :t :translate
+
+    def localize(*args)
+      I18n.localize *args
+    end
+    alias :l :localize
+  end
+end
+ActiveRecord::Base.send :extend, LocalizationScopes::TranslationHelper
+ActiveRecord::Base.send :include, LocalizationScopes::TranslationHelper
+ActionMailer::Base.send :extend, LocalizationScopes::TranslationHelper
+ActionMailer::Base.send :include, LocalizationScopes::TranslationHelper
+
+module I18n
+  module Backend
+    class Simple
+      alias_method :interpolate, :interpolate_without_deprecated_syntax
+    end
+  end
+end

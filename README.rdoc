@@ -8,6 +8,7 @@ It also allows to translate using multiple scope parameters like t(:general, :st
 * t_context_scope opens code blocks with scopes equal to the file you are in, e.g. 'settings' for controllers/settings_controller.rb or 'settings.list' for views/settings/list.html.erb.
 * tc is like the t translation method but with context scope
 * translate using multiple scope parameters like t(:general, :states, :normal)
+* enable Rails I18n helpers and localization_scopes helpers in models and mailers
 
 = Further information
 
